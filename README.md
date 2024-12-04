@@ -1,15 +1,67 @@
+# Form Submission Application
 
-I created the Form Submission application using Vite and React due to their modern, efficient, and scalable features. Vite offers fast startup times, quick server launches, and on-demand module loading outperforming traditional tools like Webpack. Vite's robust Hot Module Replacement (HMR) ensures real-time updates, while its plugin-based architecture makes it highly extensible and optimized for modern browsers. React offers an excellent component-based architecture for reusability and scalability, and powerful features such as Hooks for simplified state management. Together, Vite and React deliver a seamless development experience, combining fast builds, efficient rendering, and the ability to scale with ease.
+## Overview
 
-Project Contents 
-Main.jsx - 
-pages
-    CountrySelect.jsx - This provides a selectable drop down menu for a user to choose from a range of countries supplied form an external API call. The fetched countries are sorted alphabetically making selection easier on the user. Within this component a errors are handled and presented to the user, for example if the api call fails an error stating 'failed to fetch' is displayed for the user and they are unable to complete the form without a reload. Additionally, the status of loading is printed up to the user to let them know the API call is still under way. These graceful error handlers allow for proper form submission and prevent any errors. 
+The **Form Submission Application** is a modern, efficient, and scalable web application built using **Vite** and **React**. This combination offers fast build times, quick server launches, and real-time updates through Hot Module Replacement (HMR). React's component-based architecture ensures reusability and scalability, while Vite optimizes for modern browsers, delivering a seamless development experience.
 
-    EmailValidator.jsx - This component is designed to handel input validation for email addresses. It provides real-time user feedback that an email has been entered wrong or does not meet the standard email format. Additionally, using Reacts built in email input type adds another layer of error handling with a small pop-over message box informing the user the input value does not meet the criteria of the standard email format.
+---
 
-    PhoneValidator.jsx - This component allows for a 10-15 digit phone number to be input into the form. The reason to accept up to a 15 digit phone number is due to the ability for the user to select from multiple countries where phone number length may vary. The input is also cleaned of any non numeric values to exclude the + sign which would signify a country code. The component also includes dynamic error handling which provides a print up for the user to read if errors are present within the input. 
+## Project Contents
 
-    FormSubmission.jsx - 
-        This is the heart of the application and imports the email, phone validation, and country selection components. This component set the state for all form fields which are passed between components and the current state is stored. This component has an additional level of error handling which checks to make sure all form fields are filled out before advancing, these error messages display as 'FIELD is Required Field' as opposed to checking and validating if the information is correct. Meaning if a user where to leave their phone number blank a "Phone Number is Required" error would generate as opposed to an incorrect phone number error generated from the PhoneValidator.jsx. 
-        Once all fields have been satisfied and the submit button has been clicked the card will flip over with a simple "Thank you for your submission" and user details such as first name, email, and selected country. The user is also presented with the option to reset the form which when clicked clears all of the state variables and flips the card back to the original form submission. 
+### **main.jsx**
+This file serves as the entry point for the application. It renders the root component (`FormSubmission.jsx`) into the DOM, initializing the React application.
+
+---
+
+### **Components (pages folder)**
+
+#### **CountrySelect.jsx**
+- Provides a dropdown menu for selecting countries, fetched from an external API.
+- Fetched countries are sorted alphabetically for easier user selection.
+- Implements graceful error handling:
+  - Displays an error message `'Failed to fetch'` if the API call fails.
+  - Shows a loading status while fetching data.
+- Prevents form submission errors by ensuring robust error messages.
+
+#### **EmailValidator.jsx**
+- Validates email input in real-time.
+- Utilizes React's built-in email input type for additional validation.
+- Displays pop-over messages to inform users when the email format is incorrect.
+
+#### **PhoneValidator.jsx**
+- Accepts phone numbers between 10-15 digits to accommodate international numbers.
+- Cleans input by removing non-numeric characters (e.g., excluding `+` for country codes).
+- Provides dynamic error messages if the input is invalid.
+
+#### **FormSubmission.jsx**
+- Serves as the core of the application.
+- Imports and integrates `CountrySelect`, `EmailValidator`, and `PhoneValidator` components.
+- Manages state for all form fields and ensures proper data flow between components.
+- Implements comprehensive error handling:
+  - Ensures all fields are completed before submission.
+  - Displays "FIELD is Required" messages if fields are left blank.
+- Upon successful form submission:
+  - Displays a thank-you message along with user details (e.g., first name, email, and selected country).
+  - Allows the user to reset the form, clearing all state variables and flipping back to the original form view.
+
+---
+
+## Application Styling
+
+### **CSS Files**
+- **index.css**
+  - Provides foundational styles for typography, layout, and overall appearance.
+- **form.css**
+  - Focuses on styling specific to `FormSubmission.jsx`.
+  - Controls font color, card size, border styling, background color, and responsive design for different screen sizes.
+
+---
+
+## To Run Application Locally
+- clone repo using either 
+    - HTTPS: `git clone https://github.com/AlexanderSpies/nutramaxCodingCallenge.git`
+    - SSH: `git clone git@github.com:AlexanderSpies/nutramaxCoding`
+- Using CMD navigate into the recently cloned repo and issue the command 
+    - npm install - this installs all necessary dependencies for the Vite/React application 
+- Once all dependencies have been installed issues the command 
+    - npm run dev - this will locally launch the application and allow you to interface with it. 
