@@ -64,4 +64,7 @@ This file serves as the entry point for the application. It renders the root com
 - Using CMD navigate into the recently cloned repo and issue the command 
     - `npm install` - this installs all necessary dependencies for the Vite/React application 
 - Once all dependencies have been installed issues the command 
-    - `npm run dev` - this will locally launch the application and allow you to interface with it. 
+    - `npm run dev` - this will locally launch the application and allows you to interface with it. 
+
+## Deployed Version
+- A deployed version can be found at `https://formsubmissionv1.netlify.app/`
