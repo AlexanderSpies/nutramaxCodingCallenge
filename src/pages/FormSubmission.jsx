@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CountrySelect from "./CountrySelect";
 import EmailValidatorForm from "./EmailValidator";
 import PhoneValidation from "./PhoneValidator";
-import "../App.css";
+import "../css/form.css";
 
 function Home() {
   const [firstName, setFirstName] = useState("");

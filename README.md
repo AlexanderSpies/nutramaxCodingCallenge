@@ -1,8 +1,15 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I created the Form Submission application using Vite and React due to their modern, efficient, and scalable features. Vite offers fast startup times, quick server launches, and on-demand module loading outperforming traditional tools like Webpack. Vite's robust Hot Module Replacement (HMR) ensures real-time updates, while its plugin-based architecture makes it highly extensible and optimized for modern browsers. React offers an excellent component-based architecture for reusability and scalability, and powerful features such as Hooks for simplified state management. Together, Vite and React deliver a seamless development experience, combining fast builds, efficient rendering, and the ability to scale with ease.
 
-Currently, two official plugins are available:
+Project Contents 
+Main.jsx - 
+pages
+    CountrySelect.jsx - This provides a selectable drop down menu for a user to choose from a range of countries supplied form an external API call. The fetched countries are sorted alphabetically making selection easier on the user. Within this component a errors are handled and presented to the user, for example if the api call fails an error stating 'failed to fetch' is displayed for the user and they are unable to complete the form without a reload. Additionally, the status of loading is printed up to the user to let them know the API call is still under way. These graceful error handlers allow for proper form submission and prevent any errors. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    EmailValidator.jsx - This component is designed to handel input validation for email addresses. It provides real-time user feedback that an email has been entered wrong or does not meet the standard email format. Additionally, using Reacts built in email input type adds another layer of error handling with a small pop-over message box informing the user the input value does not meet the criteria of the standard email format.
+
+    PhoneValidator.jsx - This component allows for a 10-15 digit phone number to be input into the form. The reason to accept up to a 15 digit phone number is due to the ability for the user to select from multiple countries where phone number length may vary. The input is also cleaned of any non numeric values to exclude the + sign which would signify a country code. The component also includes dynamic error handling which provides a print up for the user to read if errors are present within the input. 
+
+    FormSubmission.jsx - 
+        This is the heart of the application and imports the email, phone validation, and country selection components. This component set the state for all form fields which are passed between components and the current state is stored. This component has an additional level of error handling which checks to make sure all form fields are filled out before advancing, these error messages display as 'FIELD is Required Field' as opposed to checking and validating if the information is correct. Meaning if a user where to leave their phone number blank a "Phone Number is Required" error would generate as opposed to an incorrect phone number error generated from the PhoneValidator.jsx. 
+        Once all fields have been satisfied and the submit button has been clicked the card will flip over with a simple "Thank you for your submission" and user details such as first name, email, and selected country. The user is also presented with the option to reset the form which when clicked clears all of the state variables and flips the card back to the original form submission. 
