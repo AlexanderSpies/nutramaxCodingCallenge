@@ -62,6 +62,6 @@ This file serves as the entry point for the application. It renders the root com
     - HTTPS: `git clone https://github.com/AlexanderSpies/nutramaxCodingCallenge.git`
     - SSH: `git clone git@github.com:AlexanderSpies/nutramaxCoding`
 - Using CMD navigate into the recently cloned repo and issue the command 
-    - npm install - this installs all necessary dependencies for the Vite/React application 
+    - `npm install` - this installs all necessary dependencies for the Vite/React application 
 - Once all dependencies have been installed issues the command 
-    - npm run dev - this will locally launch the application and allow you to interface with it. 
+    - `npm run dev` - this will locally launch the application and allow you to interface with it. 
