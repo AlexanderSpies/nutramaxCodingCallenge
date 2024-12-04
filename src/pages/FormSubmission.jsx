@@ -49,38 +49,58 @@ function Home() {
     <div className="cardOutline">
       <div className={`form-card ${isSubmitted ? "flipped" : ""}`}>
         {!isSubmitted ? (
-          <form onSubmit={handleSubmit}>
-            <h1 className="form-title">Form Submission</h1>
+          <form onSubmit={handleSubmit} aria-labelledby="form-title">
+            <h1 id="form-title" className="form-title">Form Submission</h1>
+
             <div className={`form-field ${errors.firstName ? "error" : ""}`}>
-              <label>
+              <label htmlFor="first-name">
                 First Name:
                 <input
+                  id="first-name"
                   type="text"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
+                  aria-describedby={errors.firstName ? "first-name-error" : undefined}
+                  aria-invalid={!!errors.firstName}
                 />
               </label>
               {errors.firstName && (
-                <span className="error-message">{errors.firstName}</span>
+                <span
+                  id="first-name-error"
+                  className="error-message"
+                  role="alert"
+                >
+                  {errors.firstName}
+                </span>
               )}
             </div>
 
             <div className={`form-field ${errors.lastName ? "error" : ""}`}>
-              <label>
+              <label htmlFor="last-name">
                 Last Name:
                 <input
+                  id="last-name"
                   type="text"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
+                  aria-describedby={errors.lastName ? "last-name-error" : undefined}
+                  aria-invalid={!!errors.lastName}
                 />
               </label>
               {errors.lastName && (
-                <span className="error-message">{errors.lastName}</span>
+                <span
+                  id="last-name-error"
+                  className="error-message"
+                  role="alert"
+                >
+                  {errors.lastName}
+                </span>
               )}
             </div>
 
             <div className={`form-field ${errors.phoneNumber ? "error" : ""}`}>
               <PhoneValidation
+                id="phone-number"
                 value={phoneNumber}
                 onChange={setPhoneNumber}
                 setError={(errorMsg) =>
@@ -92,12 +112,19 @@ function Home() {
                 error={errors.phoneNumber}
               />
               {errors.phoneNumber && (
-                <span className="error-message">{errors.phoneNumber}</span>
+                <span
+                  id="phone-number-error"
+                  className="error-message"
+                  role="alert"
+                >
+                  {errors.phoneNumber}
+                </span>
               )}
             </div>
 
             <div className={`form-field ${errors.email ? "error" : ""}`}>
               <EmailValidatorForm
+                id="email"
                 value={email}
                 onChange={setEmail}
                 setError={(errorMsg) =>
@@ -108,31 +135,57 @@ function Home() {
                 }
                 error={errors.email}
               />
-            </div>
-
-            <div className={`form-field ${errors.country ? "error" : ""}`}>
-              <label>
-                Country:
-                <CountrySelect
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
-                />
-              </label>
-              {errors.country && (
-                <span className="error-message">{errors.country}</span>
+              {errors.email && (
+                <span
+                  id="email-error"
+                  className="error-message"
+                  role="alert"
+                >
+                  {errors.email}
+                </span>
               )}
             </div>
 
-            <input type="submit" value="Submit" />
+            <div className={`form-field ${errors.country ? "error" : ""}`}>
+              <label htmlFor="country">
+                Country:
+                <CountrySelect
+                  id="country"
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  aria-describedby={errors.country ? "country-error" : undefined}
+                  aria-invalid={!!errors.country}
+                />
+              </label>
+              {errors.country && (
+                <span
+                  id="country-error"
+                  className="error-message"
+                  role="alert"
+                >
+                  {errors.country}
+                </span>
+              )}
+            </div>
+
+            <input
+              type="submit"
+              value="Submit"
+              aria-label="Submit form"
+            />
           </form>
         ) : (
-          <div className="submission-summary">
+          <div className="submission-summary" aria-live="polite">
             <h2>Thank you for your submission!</h2>
             <p>First Name: {firstName}</p>
             <p>Email: {email}</p>
             <p>Selected Country: {country}</p>
             <div className="submission-button-container">
-              <button className="reset-button" onClick={handleReset}>
+              <button
+                className="reset-button"
+                onClick={handleReset}
+                aria-label="Reset form"
+              >
                 Reset
               </button>
             </div>
