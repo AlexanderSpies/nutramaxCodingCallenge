@@ -1,0 +1,129 @@
+.cardOutline {
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 90%;
+  box-sizing: border-box;
+  background: #F5F5F5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.form-title{
+  color:#333333;
+}
+
+.form-field {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  color:#333333;
+  font-weight: bold;
+}
+
+.form-field.error input,
+.form-field.error select {
+  border: 2px solid #f30000b6;
+  outline: none;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #202020;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: #3333339c;
+  color: #F5F5F5;
+}
+
+input:focus,
+select:focus {
+  border-color: #BDBDBD;
+  box-shadow: 0 0 5px #BDBDBD;
+  outline: none;
+}
+
+.error-message {
+  color: #f30000b6;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.submission-summary {
+  color: #333333;
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto; 
+  font-size: 1rem;
+}
+
+.buttonContainer{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.reset-button{
+  width:50%;
+  height:2rem;
+  border:2px solid #555555;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px #333333;
+}
+
+
+@media (max-width: 768px) {
+  .cardOutline {
+    padding: 1.5rem;
+  }
+
+  .form-card {
+    gap: 1rem;
+  }
+
+  .form-field {
+    margin-bottom: 1rem;
+  }
+
+  input,
+  select {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .cardOutline {
+    padding: 1rem;
+  }
+
+  input,
+  select {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .error-message {
+    font-size: 0.75rem;
+  }
+}
